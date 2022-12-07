@@ -1,0 +1,15 @@
+.App {
+    --header_height: 60px;
+}
+
+.hw {
+    padding: 24px;
+}
+
+.hwTitle {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000000;
+    padding: 105px 0 10px 0;
+}
