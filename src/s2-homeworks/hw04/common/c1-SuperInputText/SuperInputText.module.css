@@ -1,20 +1,32 @@
 .input:focus {
+    outline: inherit;
 }
 
 .input {
+    width: 100%;
+    max-width: 370px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    padding: 0.5rem;
 }
 
 .inputWrapper {
+    flex-basis: 370px;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .superInput {
 }
 
 .errorInput {
+    border-color: #CC1439;
 }
 
 .errorInput:focus {
+    outline: #CC1439;
 }
 
 .error {
+    color: #CC1439;
 }
