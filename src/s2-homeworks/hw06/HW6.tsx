@@ -4,6 +4,7 @@ import { restoreState, saveState } from './localStorage/localStorage'
 import s2 from '../../s1-main/App.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import s from './HW6.module.css'
+import {Container, Divider} from "@mui/material";
 
 /*
  * 1 - в файле SuperEditableSpan.tsx дописать логику функций onEnterCallback, onBlurCallback, onDoubleClickCallBack
@@ -19,40 +20,45 @@ const HW6 = () => {
     }
     const restore = () => {
         // делают студенты
-
+        setValue(restoreState<string>('hw6-editable-span-value', ''))
     }
 
     return (
         <div id={'hw6'}>
-            <div className={s2.hwTitle}>Homework #6</div>
+            <Container maxWidth={'xl'}>
+                <div className={s2.hwTitle}>Homework #6</div>
+            </Container>
+            <Divider />
 
             {/*демонстрация возможностей компоненты:*/}
-            <div className={s2.hw}>
-                <div className={s.editableSpanContainer}>
-                    <SuperEditableSpan
-                        id={'hw6-spanable-input'}
-                        value={value}
-                        onChangeText={setValue}
-                        spanProps={{
-                            id: 'hw6-editable-span',
-                            defaultText: 'enter text...',
-                        }}
-                    />
-                </div>
+            <Container maxWidth={'xl'}>
+                <div className={s2.hw}>
+                    <div className={s.editableSpanContainer}>
+                        <SuperEditableSpan
+                          id={'hw6-spanable-input'}
+                          value={value}
+                          onChangeText={setValue}
+                          spanProps={{
+                              id: 'hw6-editable-span',
+                              defaultText: 'enter text...',
+                          }}
+                        />
+                    </div>
 
-                <div className={s.buttonsContainer}>
-                    <SuperButton id={'hw6-save'} onClick={save}>
-                        Save to ls
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw6-restore'}
-                        onClick={restore}
-                        xType={'secondary'}
-                    >
-                        Get from ls
-                    </SuperButton>
+                    <div className={s.buttonsContainer}>
+                        <SuperButton id={'hw6-save'} onClick={save}>
+                            Save to ls
+                        </SuperButton>
+                        <SuperButton
+                          id={'hw6-restore'}
+                          onClick={restore}
+                          xType={'secondary'}
+                        >
+                            Get from ls
+                        </SuperButton>
+                    </div>
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }
