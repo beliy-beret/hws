@@ -5,19 +5,33 @@
 }
 
 .users {
+    margin-top: 1rem;        
+    border-collapse: collapse;
+    width: 100%;    
 }
-
+.users tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-style: solid;
+    border-width: 0 0 2px 0;
+    padding: 16px;
+}
+.users td:nth-child(2) {
+    font-weight: 600;
+} 
+ 
 .buttonsContainer {
+    display: flex;
+    justify-content: right;
+    gap: 1rem;
 }
 
-.container {
+.thead {        
+    background-color: #E5E5E5;
 }
-
-.thead {
-}
-
-.nameCol {
-}
-
-.ageCol {
+.thead tr {
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 600;
 }
