@@ -24,13 +24,13 @@ const HW7 = () => {
 
     return (
         <div id={'hw7'}>
-            <Container maxWidth={'lg'}>
+            <Container maxWidth={'xl'}>
                 <div className={s2.hwTitle}>Homework #7</div>
             </Container>
             <Divider sx={{ borderWidth: '3px', m: '1rem 0' }} />
             {/*демонстрация возможностей компонент:*/}
             <div className={s2.hw}>
-                <Container maxWidth={'lg'}>
+                <Container maxWidth={'xl'}>
                     <div className={s.container}>
                         <div>
                             <SuperSelect

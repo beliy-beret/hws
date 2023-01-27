@@ -1,12 +1,30 @@
-.select {
+select{    
+    appearance: none;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    height: auto;
     padding: 5px 10px;
     border: 1px solid #C2C2C2;
     border-radius: 2px;
+    font-size: 14px;
+    line-height: 17px;
+    background-repeat: no-repeat;
+    background-position: right;    
 }
-
-.select:focus {
+select::-ms-expand {
+    display: none;
 }
-
-
-.option:hover {
+select:focus{
+    border: 1px solid black;
+}
+.wrapper{
+    position: relative;
+    width: 20rem;        
+}
+.wrapper::after {
+    content: url('./chevron-down.svg');
+    position: absolute;
+    top: 3px;
+    right: 0;
 }
