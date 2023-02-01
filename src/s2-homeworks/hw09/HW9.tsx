@@ -1,5 +1,7 @@
-import React from 'react'
+import { Container, Divider } from '@mui/material'
+
 import Clock from './Clock'
+import React from 'react'
 import s2 from '../../s1-main/App.module.css'
 
 /*
@@ -12,11 +14,15 @@ import s2 from '../../s1-main/App.module.css'
 const HW9 = () => {
     return (
         <div id={'hw9'}>
-            <div className={s2.hwTitle}>Homework #9</div>
-
-            <div className={s2.hw}>
-                <Clock />
-            </div>
+            <Container maxWidth={'xl'}>
+                <div className={s2.hwTitle}>Homework #9</div>
+            </Container>
+            <Divider />
+            <Container maxWidth={'xl'} sx={{ pb: '2rem' }}>
+                <div className={s2.hw}>
+                    <Clock />
+                </div>
+            </Container>
         </div>
     )
 }
