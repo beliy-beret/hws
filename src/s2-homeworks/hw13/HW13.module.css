@@ -25,14 +25,10 @@
     color: #000000;
 }
 
-.text {
+.text, .info {
     margin-top: 1rem;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     color: #000000;
-}
-.info {
-    font-size: 2rem;
-    font-weight: 600;
 }
