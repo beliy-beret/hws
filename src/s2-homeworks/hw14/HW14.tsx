@@ -1,3 +1,4 @@
+import { Box, Container, Divider } from '@mui/material'
 import React, {useEffect, useState} from 'react'
 
 import SuperDebouncedInput from './common/c8-SuperDebouncedInput/SuperDebouncedInput'
@@ -60,21 +61,26 @@ const HW14 = () => {
 
     return (
         <div id={'hw14'}>
-            <div className={s2.hwTitle}>Homework #14</div>
+            <Container maxWidth={'xl'}>
+                <div className={s2.hwTitle}>Homework #14</div>
+            </Container>
+            <Divider />            
 
             <div className={s2.hw}>
-                <SuperDebouncedInput
-                    id={'hw14-super-debounced-input'}
-                    value={find}
-                    onChangeText={onChangeText}
-                    onDebouncedChange={sendQuery}
-                />
-
-                <div id={'hw14-loading'} className={s.loading}>
-                    {isLoading ? '...ищем' : <br/>}
-                </div>
-
-                {mappedTechs}
+                <Container maxWidth={'xl'}>
+                    <Box sx={{mt: '1rem', width: '350px'}} >
+                        <SuperDebouncedInput
+                            id={'hw14-super-debounced-input'}
+                            value={find}
+                            onChangeText={onChangeText}
+                            onDebouncedChange={sendQuery}
+                        />
+                        <div id={'hw14-loading'} className={s.loading}>
+                            {isLoading ? '...ищем' : <br />}
+                        </div>
+                    </Box>
+                    {mappedTechs}
+                </Container>                
             </div>
         </div>
     )
