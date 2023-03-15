@@ -42,20 +42,20 @@ const getTechs = (params: ParamsType) => {
 const HW15 = () => {
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
-    const [count, setCount] = useState(4)
+    const [count, setCount] = useState(0)
     const [idLoading, setLoading] = useState(false)
-    const [totalCount, setTotalCount] = useState(101)
+    const [totalCount, setTotalCount] = useState(0)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
     const sendQuery = (params: ParamsType) => {
-        //setLoading(true)
+        setLoading(true)
         getTechs(params)
             .then((res) => {
                 // делает студент
                 setTechs(res?.data?.techs!)
                 setTotalCount(res?.data?.totalCount!)
-            })
+            }).finally(() => setLoading(false))
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
@@ -106,9 +106,11 @@ const HW15 = () => {
 
             <div className={s2.hw}>
                 <Container maxWidth={'xl'} sx={{position: 'relative', p: '1rem 0 5%'}}>
-                    {idLoading && <div id={'hw15-loading'} className={s.loading}>
+                    {idLoading && 
+                    (<div id={'hw15-loading'} className={s.loading}>
                         <CircularProgress color="secondary" />
-                    </div>}
+                    </div>)
+                    }
                     
                     <SuperPagination
                         page={page}

@@ -1,6 +1,6 @@
+import {Box, Pagination} from '@mui/material'
 import React, { ChangeEvent } from 'react'
 
-import {Pagination} from '@mui/material'
 import SuperSelect from '../../../hw07/common/c5-SuperSelect/SuperSelect'
 import s from './SuperPagination.module.css'
 
@@ -41,27 +41,26 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                 hideNextButton
                 hidePrevButton
             />
-            
-            <span className={s.text1}>
-                показать
-            </span>
-
-            <SuperSelect
-                id={id + '-pagination-select'}
-                value={itemsCountForPage}
-                options={[
-                    {id: 4, value: 4},
-                    {id: 7, value: 7},
-                    {id: 10, value: 10},
-                ]}
-                onChange={onChangeSelect}
-            />
-
-            <span className={s.text2}>
-                строк в таблице
-            </span>
-            
-            
+            <Box sx={{display: 'flex', gap: '8px'}}>
+                <span className={s.text1}>
+                    показать
+                </span>
+                <Box sx={{width: '3rem'}}>
+                    <SuperSelect
+                        id={id + '-pagination-select'}
+                        value={itemsCountForPage}
+                        options={[
+                            { id: 4, value: 4 },
+                            { id: 7, value: 7 },
+                            { id: 10, value: 10 },
+                        ]}
+                        onChange={onChangeSelect}
+                    />
+                </Box>                
+                <span className={s.text2}>
+                    строк в таблице
+                </span>
+            </Box>
         </div>
     )
 }
