@@ -23,12 +23,8 @@ type TechType = {
     developer: string
 }
 
-type ParamsType = {
-    count: number
-    page: number
-}
 
-const getTechs = (params: ParamsType) => {
+const getTechs = (params: any) => {
     return axios
         .get<{ techs: TechType[], totalCount: number }>(
             'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test3',
@@ -42,13 +38,13 @@ const getTechs = (params: ParamsType) => {
 const HW15 = () => {
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(4)
     const [idLoading, setLoading] = useState(false)
     const [totalCount, setTotalCount] = useState(0)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: ParamsType) => {
+    const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
@@ -68,21 +64,18 @@ const HW15 = () => {
 
     const onChangeSort = (newSort: string) => {
         // делает студент
-
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
-
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        setSort(newSort)
+        setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSearchParams({page: '1', count: String(count), sort: newSort})
+        sendQuery(searchParams)        
     }
 
-    useEffect(() => {
+    useEffect(() => {        
         const params = Object.fromEntries(searchParams)
         sendQuery({page: +params.page, count: +params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
+        sendQuery({ page, count })
     }, [])
 
     const mappedTechs = techs.map(t => (
