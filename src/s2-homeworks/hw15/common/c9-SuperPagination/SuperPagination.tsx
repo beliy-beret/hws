@@ -41,11 +41,11 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                 hideNextButton
                 hidePrevButton
             />
-            <Box sx={{display: 'flex', gap: '8px'}}>
+            
                 <span className={s.text1}>
                     показать
                 </span>
-                <Box sx={{width: '3rem'}}>
+                
                     <SuperSelect
                         id={id + '-pagination-select'}
                         value={itemsCountForPage}
@@ -56,11 +56,11 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                         ]}
                         onChange={onChangeSelect}
                     />
-                </Box>                
+                                
                 <span className={s.text2}>
                     строк в таблице
                 </span>
-            </Box>
+            
         </div>
     )
 }

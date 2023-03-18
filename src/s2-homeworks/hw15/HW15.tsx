@@ -98,7 +98,7 @@ const HW15 = () => {
             <Divider />
 
             <div className={s2.hw}>
-                <Container maxWidth={'xl'} sx={{position: 'relative', p: '1rem 0 5%'}}>
+                
                     {idLoading && 
                     (<div id={'hw15-loading'} className={s.loading}>
                         <CircularProgress color="secondary" />
@@ -125,7 +125,7 @@ const HW15 = () => {
                     </div>
 
                     {mappedTechs}
-                </Container>                                
+                                                
             </div>
         </div>
     )
