@@ -58,21 +58,20 @@ const HW15 = () => {
         // делает студент
         setPage(newPage)
         setCount(newCount)
-        setSearchParams({page: String(newPage), count: String(newCount)})
-        sendQuery({page: newPage, count: newCount})        
+        setSearchParams({page: String(newPage), count: String(newCount), sort})
+        sendQuery({page: newPage, count: newCount, sort})        
     }
 
     const onChangeSort = (newSort: string) => {
         // делает студент
         setSort(newSort)
         setPage(1) // при сортировке сбрасывать на 1 страницу
-        setSearchParams({page: String(page), count: String(count), sort: newSort})
-        sendQuery(searchParams)        
+        setSearchParams({count: String(count), page: String(page), sort: newSort})
+        sendQuery({page, count, sort: newSort})        
     }
 
     useEffect(() => {        
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: +params.page, count: +params.count})
         setPage(+params.page || 1)
         setCount(+params.count || 4)
         sendQuery({ page, count })
@@ -89,7 +88,7 @@ const HW15 = () => {
             </div>
         </div>
     ))
-
+        
     return (
         <div id={'hw15'}>
             <Container maxWidth={'xl'} sx={{mt: '2rem'}}>
